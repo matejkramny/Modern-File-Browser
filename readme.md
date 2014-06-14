@@ -10,7 +10,7 @@ Nginx Manager
 - Production-ready
 	- `Use at your own risk`
 
-
+![Screenshot of the Editor](Screenshots/screen.png)
 
 TODO & Bugs
 -----------
@@ -22,8 +22,6 @@ TODO & Bugs
 - Traverse Folders
 - Automatically switch style based on extension
 - Be able to load/save/delete files over SSH/FTP Connections
-
-![Screenshot of the Editor](Screenshots/screen.png)
 
 License
 -------
