@@ -1,0 +1,36 @@
+extends layout
+
+block js
+	script(src="//cdn.jsdelivr.net/ace/1.1.3/min/ace.js")
+	script(src="/js/editor.js")
+
+block content
+	.row(ng-controller="EditorController")
+		.col-sm-4(style="padding-left:0; padding-right:0;")
+			div(style="padding-left:15px; padding-right:15px;")
+				h2 Nginx Manager
+				span(ng-show="status") {{ status }}
+
+				br
+
+				.pull-right(ng-show="selectedFile.active == true")
+					a.btn.btn-sm.btn-default(href="/admin/users" style="margin-top:0;") Manage Users
+					| &nbsp;
+					button.btn.btn-sm.btn-danger(ng-click="selectFile(selectedFile)" ng-disabled="!selectedFile.dirty") Cancel
+					| &nbsp;
+					button.btn.btn-sm.btn-success(ng-click="saveFile(selectedFile)" ng-disabled="!selectedFile.dirty")
+						i.fa.fa-save.fa-fw
+						|  Save File
+				.clearfix
+
+			ul.list-unstyled.file-nav
+				li(ng-repeat="file in files" ng-class="{ active: file.active }")
+					a(ng-click="selectFile(file)") {{ file.name }}
+		.col-sm-8
+			//- editor
+			ace-editor#editor
+
+	.col-sm-4(style="padding-left: 0; position:absolute; height: 20px; bottom: 10px; left: 10px; padding-right: 20px;")
+		iframe(src="http://ghbtns.com/github-btn.html?user=matejkramny&repo=nginx-manager&type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20")
+		iframe(src="http://ghbtns.com/github-btn.html?user=matejkramny&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20")
+		a.pull-right.btn.btn-xs.btn-default(href="/auth/logout" style="margin-top:0;") Logout

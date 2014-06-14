@@ -1,0 +1,36 @@
+{
+  "name": "nginx-manager",
+  "version": "0.0.0",
+  "description": "Manage nginx configuration",
+  "main": "bin/nginx-manager.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/matejkramny/nginx-manager.git"
+  },
+  "keywords": [
+    "nginx",
+    "manager"
+  ],
+  "author": "Matej Kramny <matej@matej.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matejkramny/nginx-manager/issues"
+  },
+  "homepage": "https://github.com/matejkramny/nginx-manager",
+  "dependencies": {
+    "cookie-parser": "^1.1.0",
+    "morgan": "^1.1.1",
+    "express-session": "^1.2.1",
+    "passport": "^0.2.0",
+    "body-parser": "^1.3.1",
+    "serve-static": "^1.2.3",
+    "express": "^4.4.3",
+    "jade": "^1.3.1",
+    "mongoose": "^3.8.12",
+    "async": "^0.9.0",
+    "connect-mongo": "^0.4.1"
+  }
+}

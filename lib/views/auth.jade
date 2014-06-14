@@ -1,0 +1,23 @@
+extends layout
+
+block js
+	script(src="/js/auth.js")
+
+block content
+	.row.top-200
+		.col-sm-4.col-sm-offset-4(ng-controller="AuthController")
+			h1.text-center Nginx Manager
+			p.mute.text-center #{ company }
+				br
+				span.text-danger(ng-show="status" ng-bind="status")
+
+			form.form-horizontal(style="margin-top:20px;")
+				.form-group
+					.col-xs-12
+						input.text-center.input-lg.form-control(type="email" placeholder="Email Address" autofocus ng-model="auth.email")
+				.form-group
+					.col-xs-12
+						input.text-center.input-lg.form-control(type="password" placeholder="Password" ng-model="auth.password")
+				.form-group
+					.col-xs-12
+						button.btn.btn-block.btn-lg.btn-primary(ng-click="login()") Login

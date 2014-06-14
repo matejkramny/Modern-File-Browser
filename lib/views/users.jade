@@ -1,0 +1,34 @@
+extends layout
+
+block js
+	script(src="/js/users.js")
+
+block content
+	.row(ng-controller="UsersController")
+		.col-sm-4
+			h1 Users
+				small(ng-show="status") {{ status }}
+			.btn-group
+				a.btn.btn-default.btn-xs(href="/") Editor
+				a.btn.btn-success.btn-xs(ng-click="createUser()" ng-disabled="!user._id") New User
+
+			ul.list-unstyled.nav(style="margin-top: 20px;")
+				li(ng-repeat="user in users")
+					a(ng-click="selectUser(user)" href="#") {{ user.name }}
+		.col-sm-8
+			h3
+				span(ng-show="user._id") {{ user.name }}
+				span(ng-hide="user._id") New User
+			form.form-horizontal
+				.form-group
+					.col-sm-6
+						input.form-control(type="text" placeholder="Name" ng-model="user.name" required)
+				.form-group
+					.col-sm-6
+						input.form-control(type="email" placeholder="Email" ng-model="user.email" required)
+				.form-group
+					.col-sm-6
+						input.form-control(type="password" placeholder="Password (if you want to change)" ng-model="user.password")
+				.form-group
+					.col-sm-6
+						button.btn.btn-primary(type="email" placeholder="Email" ng-click="saveUser(user)") Save User
