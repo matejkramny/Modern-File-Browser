@@ -4,6 +4,16 @@ window.nginxManager
 	s.selectedFile = {};
 
 	s.selectFile = function (file) {
+		if (file.isFolder) {
+			// Load directory
+			var chars = s.pwd.split('');
+			if (chars[chars.length-1] == '/') {
+				return s.loadFiles(s.pwd + file.name);
+			} else {
+				return s.loadFiles(s.pwd + '/' + file.name);
+			}
+		}
+
 		s.selectedFile.active = false;
 
 		s.selectedFile = file;
@@ -13,7 +23,14 @@ window.nginxManager
 		$http.get(file.url).success(function (data) {
 			s.editor.setValue(data.contents);
 			s.editor.gotoLine(0);
+			
+			var modelist = ace.require('ace/ext/modelist');
+			var mode = modelist.getModeForPath(file.name).mode;
+			
+			s.editor.getSession().setMode(mode);
 			s.selectedFile.dirty = false;
+
+			s.status = "";
 		}).error(function (data) {
 			s.status = data.message;
 		});
@@ -26,24 +43,28 @@ window.nginxManager
 			content: s.editor.getValue()
 		}).success(function (data) {
 			s.status = "File Saved.";
+			file.dirty = false;
 		}).error(function (data) {
 			s.status = data.message;
 		})
 	}
 
-	s.loadFiles = function () {
-		$http.get('/files').success(function (data) {
+	s.loadFiles = function (folder) {
+		if (folder == '~') folder = "";
+
+		$http.get('/files'+folder).success(function (data) {
+			s.pwd = data.pwd;
+			s.pwdOriginal = data.pwd;
 			s.files = data.files;
-			if (s.files.length > 0) {
-				s.selectFile(s.files[0]);
-			}
+			s.status = "";
 		}).error(function (data) {
 			s.status = data.message;
 		})
 	}
 
-	s.loadFiles();
+	s.loadFiles('');
 }])
+
 .directive('aceEditor', function () {
 	return {
 		scope: '@',

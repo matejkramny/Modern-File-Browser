@@ -17,6 +17,16 @@
 	left: 0;
 }
 
+#fileNavigator {
+	height: 100vh;
+	overflow: scroll;
+	padding-bottom: 40px;
+}
+
+#fileNavigator #fileNav.btn-group a {
+	border-radius: 0;
+}
+
 .file-nav {
 	margin-top: 10px;
 }
@@ -35,6 +45,7 @@
 	vertical-align: center;
 	line-height: 40px;
 	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+	overflow: hidden;
 }
 
 .file-nav li a:hover, .file-nav li.active a {
@@ -42,4 +53,28 @@
 	color: white;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+.file-nav li a:hover {
+	background: #3276b1;
+}
+
+#fileLocation input, #fileLocation button {
+	border-radius: 0;
+}
+
+#footer.col-sm-4 {
+	padding: 0;
+	margin: 0;
+	position:absolute;
+	height: 40px;
+	background: #FEFEFE;
+	border-top: 1px #999 solid;
+
+	bottom: 0;
+	left: 0;
+
+	-moz-box-shadow:    0 0 10px 0 #999;
+   -webkit-box-shadow: 0 0 10px 0 #999;
+   box-shadow:         0 0 10px 0 #999;
 }
