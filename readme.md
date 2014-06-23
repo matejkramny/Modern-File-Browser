@@ -14,12 +14,12 @@ Modern File Browser
 TODO & Bugs
 -----------
 
-- ~~Only works for files, trying to open directories will not work (have not tried)~~
-- ~~It doesn't check the path for relative parts, therefore it may be possible to traverse high up the directory tree to access something else.~~
-- Create and Delete files
-- ~~Traverse Folders~~
-- ~~Automatically switch style based on extension~~
-- Be able to load/save/delete files over SSH/FTP Connections
+- [x] Only works for files, trying to open directories will not work (have not tried)
+- [x] It doesn't check the path for relative parts, therefore it may be possible to traverse high up the directory tree to access something else.
+- [ ] Create and Delete files
+- [x] Traverse Folders
+- [x] Automatically switch style based on extension
+- [ ] Be able to load/save/delete files over SSH/FTP Connections
 
 License
 -------
