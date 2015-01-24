@@ -1,3 +1,5 @@
+![Screenshot of the Editor](Screenshots/screen.png)
+
 Modern File Browser
 ===================
 
@@ -9,7 +11,20 @@ Modern File Browser
 - Production-ready
 	- `Use at your own risk`
 
-![Screenshot of the Editor](Screenshots/screen.png)
+How to Run
+----------
+
+1. Install Node.js
+2. Install Mongodb
+3. Clone this repo
+4. run `node lib/app.js` (when Current Directory = this repo)
+5. Navigate to [localhost:3000](http://localhost:3000)
+
+Default Login
+-------------
+
+- `local@localhost`
+- `castawaylabs`
 
 TODO & Bugs
 -----------
