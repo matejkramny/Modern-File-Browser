@@ -1,7 +1,7 @@
 doctype
 html
 	head
-		title Nginx Manager
+		title Modern File Browser
 		link(rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
 		link(rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css")
 		link(rel="stylesheet" href="/css/style.css")
@@ -9,11 +9,11 @@ html
 	body(ng-app="nginxManager")
 		.container-fluid
 			block content
-		
+
 		script(src="https://code.jquery.com/jquery-2.1.1.min.js")
 		script(src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
 		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js")
 		script.
 			window.nginxManager = angular.module('nginxManager', []);
-		
+
 		block js
